@@ -26,11 +26,7 @@ namespace NeuroQuest.Player
             _rigidbody = GetComponent<Rigidbody2D>();
             _animator = GetComponent<Animator>();
             _inventory = GetComponent<PlayerInventory>();
-
-            //test
             _inventory.Init();
-            _inventory.Add(new KeyItem(KeyType.Red));
-            _inventory.Add(new KeyItem(KeyType.Green));
 
             _moveAction.Enable();
             _interactionAction.Enable();
