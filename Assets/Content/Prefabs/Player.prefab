@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4730832215143597412}
   - component: {fileID: 7296805275568518803}
   - component: {fileID: 660982708805340344}
+  - component: {fileID: 2185248289400933725}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -281,3 +282,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e06d8451028a2da4996fe1732c486c12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NeuroQuest.InteractableObjects.PlayerInteraction
+--- !u!114 &2185248289400933725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6589043011415996999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49ee9c0acb0028f40ae9769b58119130, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NeuroQuest.Inventory.PlayerInventory

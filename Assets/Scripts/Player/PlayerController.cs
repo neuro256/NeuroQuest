@@ -1,4 +1,5 @@
 using NeuroQuest.InteractableObjects;
+using NeuroQuest.Inventory;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -18,10 +19,18 @@ namespace NeuroQuest.Player
         private Vector2 _lookDirection = new(1, 0);
         private Vector2 _currentInput;
 
+        private PlayerInventory _inventory;
+
         private void Start()
         {
             _rigidbody = GetComponent<Rigidbody2D>();
             _animator = GetComponent<Animator>();
+            _inventory = GetComponent<PlayerInventory>();
+
+            //test
+            _inventory.Init();
+            _inventory.Add(new KeyItem(KeyType.Red));
+            _inventory.Add(new KeyItem(KeyType.Green));
 
             _moveAction.Enable();
             _interactionAction.Enable();
