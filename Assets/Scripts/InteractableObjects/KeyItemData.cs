@@ -9,6 +9,8 @@ namespace NeuroQuest.InteractableObjects
         [SerializeField]
         private KeyType _keyType;
 
+        public KeyType KeyType => _keyType;
+
         public override InventoryItem CreateItem()
         {
             return new KeyItem(_keyType);

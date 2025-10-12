@@ -12,6 +12,7 @@ namespace NeuroQuest.InteractableObjects
         private string _spritePath;
 
         public ItemType Type => _itemType;
+        public string SpritePath => _spritePath;
 
         public abstract InventoryItem CreateItem();
     }

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: ChestData_4
   m_EditorClassIdentifier: Assembly-CSharp::NeuroQuest.InteractableObjects.ChestData
   _items:
-  - {fileID: 11400000, guid: 38385fba4219ac84b9d388797a5e08c1, type: 2}
+  - {fileID: 11400000, guid: 6b4ef38fcefdd344ba211282369addf2, type: 2}
   _openedSpritePath: chest/wood_opened
   _closedSpritePath: chest/wood_closed

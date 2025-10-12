@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace NeuroQuest.InteractableObjects
@@ -5,6 +6,8 @@ namespace NeuroQuest.InteractableObjects
     public class PlayerInteraction : MonoBehaviour
     {
         public static PlayerInteraction Instance { get; private set; }
+
+        public event Action<IInteractable> onChangeInteractable;
 
         private IInteractable _currentTarget;
 
@@ -16,11 +19,13 @@ namespace NeuroQuest.InteractableObjects
         public void SetInteractable(IInteractable interactable)
         {
             _currentTarget = interactable;
+            onChangeInteractable?.Invoke(interactable);
         }
 
         public void ClearInteractable()
         {
             _currentTarget = null;
+            onChangeInteractable?.Invoke(null);
         }
 
         public void TryInteract()

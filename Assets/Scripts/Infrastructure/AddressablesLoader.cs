@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
@@ -10,7 +11,7 @@ namespace NeuroQuest.Infrastructure
     {
         private static readonly Dictionary<string, object> _cache = new();
 
-        public static async Task<T> LoadAsync<T>(string address) where T : Object
+        public static async Task<T> LoadAsync<T>(string address) where T : UnityEngine.Object
         {
             if (string.IsNullOrEmpty(address))
             {
@@ -34,6 +35,12 @@ namespace NeuroQuest.Infrastructure
 
             Debug.LogError($"[AddressablesLoader] Ошибка загрузки ресурса: {address}");
             return null;
+        }
+
+        public static async void LoadAsync<T>(string address, Action<T> onLoaded) where T : UnityEngine.Object
+        {
+            var result = await LoadAsync<T>(address);
+            onLoaded?.Invoke(result);
         }
 
         public static void ClearCache()

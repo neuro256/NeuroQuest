@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: WhiteKeyData
   m_EditorClassIdentifier: Assembly-CSharp::NeuroQuest.InteractableObjects.KeyItemData
   _itemType: 1
-  _spritePath: 
-  _keyType: 3
+  _spritePath: 'keys[keys_colored_0]'
+  _keyType: 4
