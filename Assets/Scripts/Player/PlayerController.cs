@@ -9,10 +9,6 @@ namespace NeuroQuest.Player
     {
         [SerializeField]
         private float _speed = 4;
-        [SerializeField]
-        private InputAction _moveAction;
-        [SerializeField]
-        private InputAction _interactionAction;
 
         private Rigidbody2D _rigidbody;
         private Animator _animator;
@@ -20,21 +16,20 @@ namespace NeuroQuest.Player
         private Vector2 _currentInput;
 
         private PlayerInventory _inventory;
+        private PlayerInput _playerInput;
 
         private void Start()
         {
             _rigidbody = GetComponent<Rigidbody2D>();
             _animator = GetComponent<Animator>();
+            _playerInput = GetComponent<PlayerInput>();
             _inventory = GetComponent<PlayerInventory>();
             _inventory.Init();
-
-            _moveAction.Enable();
-            _interactionAction.Enable();
         }
 
         private void Update()
         {
-            Vector2 move = _moveAction.ReadValue<Vector2>();
+            Vector2 move = _playerInput.actions["Move"].ReadValue<Vector2>();
 
             if (!Mathf.Approximately(move.x, 0.0f) || !Mathf.Approximately(move.y, 0.0f))
             {
@@ -48,7 +43,7 @@ namespace NeuroQuest.Player
             _animator.SetFloat("Look Y", _lookDirection.y);
             _animator.SetFloat("Speed", move.magnitude);
 
-            if(_interactionAction.WasPressedThisFrame())
+            if (_playerInput.actions["Interact"].WasPressedThisFrame())
             {
                 Debug.Log("Try interact");
                 PlayerInteraction.Instance.TryInteract();
