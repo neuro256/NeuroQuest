@@ -1,4 +1,5 @@
 using NeuroQuest.Inventory;
+using NeuroQuest.UI.Presentation;
 using UnityEngine;
 
 namespace NeuroQuest.InteractableObjects
@@ -33,20 +34,31 @@ namespace NeuroQuest.InteractableObjects
 
         private void OpenChest()
         {
-            _isOpened = true;
+            var windowManager = FindFirstObjectByType<WindowManager>();
+            var question = _chestData.QuestionData;
 
-            var playerInventory = FindFirstObjectByType<PlayerInventory>();
+            windowManager.ShowGame(question,
+                onSuccess: () =>
+                {
+                    _isOpened = true;
 
-            foreach (var itemData in _chestData.Items)
-            {
-                var item = itemData.CreateItem();
-                playerInventory.Add(item);
-                Debug.Log($"Игрок получил {itemData.Type} ({item})");
-            }
+                    var playerInventory = FindFirstObjectByType<PlayerInventory>();
 
-            LoadSprite(ChestState.Opened);
+                    foreach (var itemData in _chestData.Items)
+                    {
+                        var item = itemData.CreateItem();
+                        playerInventory.Add(item);
+                        Debug.Log($"Игрок получил {itemData.Type} ({item})");
+                    }
 
-            Debug.Log("Сундук открыт!");
+                    LoadSprite(ChestState.Opened);
+
+                    windowManager.ShowNotification("Правильно! Ты получаешь ключ");
+                },
+                onFail: () =>
+                {
+                    windowManager.ShowNotification("Неверный ответ!", 2f);
+                });
         }
 
         private async void LoadSprite(ChestState state)

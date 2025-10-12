@@ -2869,10 +2869,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 976208884}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!4 &1044242154 stripped
 Transform:
@@ -13804,8 +13804,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WindowManager
   _windowParent: {fileID: 1023971318}
-  _infoWindowPrefab: {fileID: 7750753433998786840, guid: da1bd890465963147a3981c255ac3965, type: 3}
   _playerInput: {fileID: 4375367615640764599}
+  _infoWindowPrefab: {fileID: 7750753433998786840, guid: da1bd890465963147a3981c255ac3965, type: 3}
+  _gameWindowPrefab: {fileID: 5582114177871605866, guid: af88d42fdee2c94478b792679929758b, type: 3}
+  _notificationPrefab: {fileID: 5600698220505445826, guid: 51eed8817b59a7949833ca87ac46789d, type: 3}
 --- !u!4 &1735501298
 Transform:
   m_ObjectHideFlags: 0
