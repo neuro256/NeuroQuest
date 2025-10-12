@@ -7,7 +7,8 @@ namespace NeuroQuest.Inventory
 {
     public class PlayerInventory : MonoBehaviour
     {
-        public event Action<List<IInventoryItem>> onInventoryChanged;
+        public event Action<IInventoryItem> onInventoryAdded;
+        public event Action onInventoryRemoved;
 
         private List<IInventoryItem> _items;
 
@@ -19,13 +20,13 @@ namespace NeuroQuest.Inventory
         public void Add(IInventoryItem item)
         {
             _items.Add(item);
-            onInventoryChanged?.Invoke(_items);
+            onInventoryAdded?.Invoke(item);
         }
 
         public void Remove(IInventoryItem item)
         {
             _items.Remove(item);
-            onInventoryChanged?.Invoke(_items);
+            onInventoryRemoved?.Invoke();
         }
 
         public bool HasItem(IInventoryItem item)

@@ -11,51 +11,50 @@ namespace NeuroQuest.UI.Inventory
         [SerializeField, Range(1, 10)] private int _slotCount = 5;
         [SerializeField] private ItemDatabase _itemDatabase;
 
-        private List<InventorySlot> _slots = new();
+        //private List<InventorySlot> _slots = new();
+        private Stack<InventorySlot> _slots;
         private PlayerInventory _playerInventory;
 
         private void Awake()
         {
-            for (int i = 0; i < _slotCount; i++)
-            {
-                var slot = Instantiate(_slotPrefab, transform);
-                slot.Clear();
-                _slots.Add(slot);
-            }
+            _slots = new Stack<InventorySlot>();
 
             _itemDatabase.Init();
 
             _playerInventory = FindFirstObjectByType<PlayerInventory>();
-            _playerInventory.onInventoryChanged += UpdateSlots;
+            _playerInventory.onInventoryAdded += AddItem;
+            _playerInventory.onInventoryRemoved += RemoveItem;
         }
 
         private void OnDestroy()
         {
             if (_playerInventory != null)
-                _playerInventory.onInventoryChanged -= UpdateSlots;
+            {
+                _playerInventory.onInventoryAdded -= AddItem;
+                _playerInventory.onInventoryRemoved -= RemoveItem;
+            }
         }
 
-        private void UpdateSlots(List<IInventoryItem> items)
+        private void AddItem(IInventoryItem item)
         {
-            if (items == null) items = new List<IInventoryItem>();
-
-            for (int i = 0; i < _slots.Count; i++)
+            if(_slots.Count <  _slotCount)
             {
-                if(i < items.Count)
-                {
-                    var item = items[i] as InventoryItem;
-                    var slot = _slots[i];
+                var slot = Instantiate(_slotPrefab, transform);
+                slot.Clear();
+                _slots.Push(slot);
 
-                    _itemDatabase.LoadItemSprite(item, sprite => {
-                        if (slot != null)
-                            slot.SetSprite(sprite);
-                     });
-                }
-                else
-                {
-                    _slots[i].Clear();
-                }
+                _itemDatabase.LoadItemSprite(item as InventoryItem, sprite => {
+                    if (slot != null)
+                        slot.SetSprite(sprite);
+                });
             }
+        }
+
+        private void RemoveItem()
+        {
+            var slot = _slots.Pop();
+            slot.Clear();
+            Destroy(slot);
         }
     }
 }
