@@ -1,3 +1,4 @@
+using NeuroQuest.Gameplay;
 using NeuroQuest.Inventory;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,8 +7,6 @@ namespace NeuroQuest.InteractableObjects
 {
     public class Chest : MonoBehaviour, IInteractable
     {
-        private const float notificationWindowDuration = 2f;
-
         [SerializeField] private ChestData _chestData;
 
         private bool _isOpened;
@@ -38,17 +37,26 @@ namespace NeuroQuest.InteractableObjects
         {
             var actionData = _chestData.ActionData;
 
-            if (actionData != null)
+            ExecuteActionsSequentially(_chestData.ActionData);
+        }
+
+        private void ExecuteActionsSequentially(List<ChestActionData> actions, int index = 0)
+        {
+            if (actions == null || index >= actions.Count) return;
+
+            actions[index].Execute(() =>
             {
-                actionData.Execute(() =>
+                ExecuteActionsSequentially(actions, index + 1);
+                
+                if (actions[index].IsMainAction)
                 {
                     _isOpened = true;
 
                     CollectItems(_chestData.Items);
 
                     LoadSprite(ChestState.Opened);
-                });
-            }
+                }
+            });
         }
 
         private void CollectItems(List<ItemData> itemsData)

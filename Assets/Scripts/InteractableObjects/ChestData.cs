@@ -22,10 +22,10 @@ namespace NeuroQuest.InteractableObjects
         [SerializeField]
         private string _closedSpritePath;
         [SerializeField]
-        private ChestActionData _actionData;
+        private List<ChestActionData> _actionData;
 
         public List<ItemData> Items => _items ??= new List<ItemData>();
-        public ChestActionData ActionData => _actionData;
+        public List<ChestActionData> ActionData => _actionData;
 
         public async Task<Sprite> LoadSpriteAsync(ChestState state)
         {

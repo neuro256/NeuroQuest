@@ -15,4 +15,6 @@ MonoBehaviour:
   _items: []
   _openedSpritePath: chest/wood_opened
   _closedSpritePath: chest/wood_closed
-  _actionData: {fileID: 11400000, guid: 82387eb93b895294c99184bb31d007e0, type: 2}
+  _actionData:
+  - {fileID: 11400000, guid: 82387eb93b895294c99184bb31d007e0, type: 2}
+  - {fileID: 11400000, guid: c4de83f4431512348a6540075f5c1297, type: 2}

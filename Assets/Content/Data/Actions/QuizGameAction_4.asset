@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb29fcf47138ebf49a9fca9e8d65502a, type: 3}
   m_Name: QuizGameAction_4
   m_EditorClassIdentifier: Assembly-CSharp::NeuroQuest.Gameplay.StartGameActionData
+  _isMainAction: 1
   _gameData: {fileID: 11400000, guid: 23b00f640f14bf340bcace7c451aae5c, type: 2}
