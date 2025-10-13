@@ -6,6 +6,10 @@ namespace NeuroQuest.InteractableObjects
 {
     public class Chest : MonoBehaviour, IInteractable
     {
+        private const string correctAnswerText = "Правильно! Ты получаешь ключ";
+        private const string wrongAnswerText = "Неверный ответ!";
+        private const float notificationWindowDuration = 2f;
+
         [SerializeField] private ChestData _chestData;
 
         private bool _isOpened;
@@ -37,6 +41,12 @@ namespace NeuroQuest.InteractableObjects
             var windowManager = FindFirstObjectByType<WindowManager>();
             var question = _chestData.QuestionData;
 
+            if(question == null)
+            {
+                Debug.LogError("question data is null");
+                return;
+            }
+
             windowManager.ShowGame(question,
                 onSuccess: () =>
                 {
@@ -53,11 +63,11 @@ namespace NeuroQuest.InteractableObjects
 
                     LoadSprite(ChestState.Opened);
 
-                    windowManager.ShowNotification("Правильно! Ты получаешь ключ");
+                    windowManager.ShowNotification(correctAnswerText);
                 },
                 onFail: () =>
                 {
-                    windowManager.ShowNotification("Неверный ответ!", 2f);
+                    windowManager.ShowNotification(wrongAnswerText, notificationWindowDuration);
                 });
         }
 
