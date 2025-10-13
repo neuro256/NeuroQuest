@@ -14624,6 +14624,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5460180043253419924, guid: 5267e09f9b509c44a9922151cad75efb, type: 3}
+      propertyPath: m_ChildControlWidth
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7024272930382580446, guid: 5267e09f9b509c44a9922151cad75efb, type: 3}
       propertyPath: m_Name
       value: InventoryUI

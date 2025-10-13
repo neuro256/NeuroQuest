@@ -43,6 +43,17 @@ namespace NeuroQuest.UI.Presentation
                 btn.onClick.AddListener(() => onAnswerSelected?.Invoke(isCorrect));
             }
         }
+
+        public override void Hide()
+        {
+            base.Hide();
+
+            _questionText.text = string.Empty;
+            _questionText.gameObject.SetActive(false);
+
+            _questionImage.sprite = null;
+            _questionImage.gameObject.SetActive(false);
+        }
     }
 }
 

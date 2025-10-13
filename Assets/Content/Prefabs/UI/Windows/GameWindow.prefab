@@ -183,6 +183,10 @@ PrefabInstance:
       propertyPath: m_CellSize.y
       value: 72
       objectReference: {fileID: 0}
+    - target: {fileID: 6790714899964037837, guid: bc024640c29db3e418183827336d2474, type: 3}
+      propertyPath: m_Constraint
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6975832388236702396, guid: bc024640c29db3e418183827336d2474, type: 3}
       propertyPath: m_text
       value: "\u0412 \u043A\u0430\u043A\u043E\u043C \u0433\u043E\u0434\u0443 \u043F\u0440\u043E\u0438\u0437\u043E\u0448\u043B\u0430
