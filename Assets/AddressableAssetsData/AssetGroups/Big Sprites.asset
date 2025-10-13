@@ -10,23 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: Default Local Group
+  m_Name: Big Sprites
   m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
-  m_GroupName: Default Local Group
-  m_GUID: c317dbf44170ec643a80ea564b629a64
+  m_GroupName: Big Sprites
+  m_GUID: 385dd8f5efb542b46863581f84e0a5c8
   m_SerializeEntries:
-  - m_GUID: 878ff0b13d5893343981fdf1b0870c8a
-    m_Address: chest/wood_opened
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: a037b9c301b2ee44d96f1745baf102d7
-    m_Address: keys
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: b43f93fc8f481284f999aee158ffaa22
-    m_Address: chest/wood_closed
+  - m_GUID: 5f7b354bddcba9243954b30124d3ad20
+    m_Address: big/dysphexia
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -34,5 +24,5 @@ MonoBehaviour:
   m_Settings: {fileID: 11400000, guid: 6bd09885d741ed647b116e4b8ee81de3, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: f1692eed5c002f146b20d6623f222822, type: 2}
-    - {fileID: 11400000, guid: 5b90212266062794fac6c6cd79f0404c, type: 2}
+    - {fileID: 11400000, guid: 96efccfc75a9f8448b29d4b702dcaab0, type: 2}
+    - {fileID: 11400000, guid: 722a7c0115de1ba4b849f9aa5e472790, type: 2}

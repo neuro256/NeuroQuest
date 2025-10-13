@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 namespace NeuroQuest.UI.Presentation
 {
-    public class GameWindowView : BaseWindowView
+    public class QuizWindowView : BaseWindowView
     {
         [SerializeField]
         private TextMeshProUGUI _questionText;

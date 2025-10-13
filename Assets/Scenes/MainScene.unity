@@ -14004,7 +14004,7 @@ MonoBehaviour:
   _windowParent: {fileID: 1023971318}
   _playerInput: {fileID: 4375367615640764599}
   _infoWindowPrefab: {fileID: 7750753433998786840, guid: da1bd890465963147a3981c255ac3965, type: 3}
-  _gameWindowPrefab: {fileID: 5582114177871605866, guid: af88d42fdee2c94478b792679929758b, type: 3}
+  _quizWindowPrefab: {fileID: 5582114177871605866, guid: af88d42fdee2c94478b792679929758b, type: 3}
   _notificationPrefab: {fileID: 5600698220505445826, guid: 51eed8817b59a7949833ca87ac46789d, type: 3}
 --- !u!4 &1735501298
 Transform:

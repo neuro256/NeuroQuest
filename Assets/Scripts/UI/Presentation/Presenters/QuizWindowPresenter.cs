@@ -5,13 +5,13 @@ using UnityEngine;
 
 namespace NeuroQuest.UI.Presentation
 {
-    public class GameWindowPresenter : BaseWindowPresenter<GameWindowView>
+    public class QuizWindowPresenter : BaseWindowPresenter<QuizWindowView>
     {
         private readonly QuestionData _questionData;
         private readonly Action _onSuccess;
         private readonly Action _onFail;
 
-        public GameWindowPresenter(GameWindowView view, QuestionData question, Action onSuccess, Action onFail)
+        public QuizWindowPresenter(QuizWindowView view, QuestionData question, Action onSuccess, Action onFail)
             : base(view)
         {
             _questionData = question;

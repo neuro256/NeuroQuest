@@ -46,7 +46,7 @@ namespace NeuroQuest.Infrastructure
                 return;
             }
 
-            _windowManager.ShowGame(gameData.QuestionData,
+            _windowManager.ShowQuiz(gameData.QuestionData,
                 onSuccess: () =>
                 {
                     _windowManager.ShowNotification(question.CorrectAnswerMessage);

@@ -14,7 +14,7 @@ namespace NeuroQuest.UI.Presentation
 
         [Header("Window views")]
         [SerializeField] private InfoWindowView _infoWindowPrefab;
-        [SerializeField] private GameWindowView _gameWindowPrefab;
+        [SerializeField] private QuizWindowView _quizWindowPrefab;
         [SerializeField] private NotificationWindowView _notificationPrefab;
 
         private readonly Dictionary<WindowType, IWindowView> _windows = new();
@@ -35,12 +35,12 @@ namespace NeuroQuest.UI.Presentation
             return presenter;
         }
 
-        public GameWindowPresenter ShowGame(QuestionData data, Action onSuccess, Action onFail)
+        public QuizWindowPresenter ShowQuiz(QuestionData data, Action onSuccess, Action onFail)
         {
             _playerInput.SwitchCurrentActionMap("UI");
 
-            var view = GetOrCreateWindow<GameWindowView>(WindowType.Game, _gameWindowPrefab);
-            var presenter = new GameWindowPresenter(view, data, onSuccess, onFail);
+            var view = GetOrCreateWindow<QuizWindowView>(WindowType.Game, _quizWindowPrefab);
+            var presenter = new QuizWindowPresenter(view, data, onSuccess, onFail);
             presenter.onWindowClose += () =>
             {
                 _playerInput.SwitchCurrentActionMap("Player");
