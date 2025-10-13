@@ -20,10 +20,16 @@ namespace NeuroQuest.UI.Data
         private string _questionSpritePath;
         [SerializeField]
         private Answer[] _answers;
+        [SerializeField]
+        private string _correctAnswerMessage;
+        [SerializeField]
+        private string _wrongAnswerMessage;
 
         public string QuestionText => _questionText;
         public string QuestionSpritePath => _questionSpritePath;
         public Answer[] Answers => _answers;
+        public string CorrectAnswerMessage => _correctAnswerMessage;
+        public string WrongAnswerMessage => _wrongAnswerMessage;
     }
 }
 

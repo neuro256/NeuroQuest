@@ -15,6 +15,11 @@ MonoBehaviour:
   m_GroupName: Default Local Group
   m_GUID: c317dbf44170ec643a80ea564b629a64
   m_SerializeEntries:
+  - m_GUID: 5f7b354bddcba9243954b30124d3ad20
+    m_Address: big/dysphexia
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 878ff0b13d5893343981fdf1b0870c8a
     m_Address: chest/wood_opened
     m_ReadOnly: 0
