@@ -16,4 +16,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8c10af808b5d94b40bb505eca4fbdba0, type: 2}
   _openedSpritePath: chest/wood_opened
   _closedSpritePath: chest/wood_closed
-  _questionData: {fileID: 11400000, guid: bd2a34b90280bd647a80142eca9263f1, type: 2}
+  _actionData: {fileID: 11400000, guid: f715344d993ed94498b14d24696fc151, type: 2}

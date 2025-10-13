@@ -1,5 +1,5 @@
 using NeuroQuest.Inventory;
-using NeuroQuest.UI.Presentation;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace NeuroQuest.InteractableObjects
@@ -36,37 +36,34 @@ namespace NeuroQuest.InteractableObjects
 
         private void OpenChest()
         {
-            var windowManager = FindFirstObjectByType<WindowManager>();
-            var question = _chestData.QuestionData;
+            var actionData = _chestData.ActionData;
 
-            if(question == null)
+            if (actionData != null)
             {
-                Debug.LogError("question data is null");
-                return;
-            }
-
-            windowManager.ShowGame(question,
-                onSuccess: () =>
+                actionData.Execute(() =>
                 {
                     _isOpened = true;
 
-                    var playerInventory = FindFirstObjectByType<PlayerInventory>();
-
-                    foreach (var itemData in _chestData.Items)
-                    {
-                        var item = itemData.CreateItem();
-                        playerInventory.Add(item);
-                        Debug.Log($"Игрок получил {itemData.Type} ({item})");
-                    }
+                    CollectItems(_chestData.Items);
 
                     LoadSprite(ChestState.Opened);
-
-                    windowManager.ShowNotification(question.CorrectAnswerMessage);
-                },
-                onFail: () =>
-                {
-                    windowManager.ShowNotification(question.WrongAnswerMessage, notificationWindowDuration);
                 });
+            }
+        }
+
+        private void CollectItems(List<ItemData> itemsData)
+        {
+            if (itemsData == null || itemsData.Count == 0)
+                return;
+
+            var playerInventory = FindFirstObjectByType<PlayerInventory>();
+
+            foreach (var itemData in itemsData)
+            {
+                var item = itemData.CreateItem();
+                playerInventory.Add(item);
+                Debug.Log($"Игрок получил {itemData.Type} ({item})");
+            }
         }
 
         private async void LoadSprite(ChestState state)

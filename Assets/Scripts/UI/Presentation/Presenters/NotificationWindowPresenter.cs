@@ -11,9 +11,9 @@ namespace NeuroQuest.UI.Presentation
             _view.ShowWithButton(text, onOkClick);
         }
 
-        public void ShowTimedMessage(string text, float duration)
+        public void ShowTimedMessage(string text, float duration, Action onComplete = null)
         {
-            _view.ShowWithTimer(text, duration);
+            _view.ShowWithTimer(text, duration, onComplete);
         }
     }
 }

@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace NeuroQuest.UI.Data
+namespace NeuroQuest.Gameplay
 {
     [Serializable]
     public class Answer
@@ -24,12 +24,15 @@ namespace NeuroQuest.UI.Data
         private string _correctAnswerMessage;
         [SerializeField]
         private string _wrongAnswerMessage;
+        [SerializeField]
+        private float _notificationDuration = 2f;
 
         public string QuestionText => _questionText;
         public string QuestionSpritePath => _questionSpritePath;
         public Answer[] Answers => _answers;
         public string CorrectAnswerMessage => _correctAnswerMessage;
         public string WrongAnswerMessage => _wrongAnswerMessage;
+        public float NotificationDuration => _notificationDuration;
     }
 }
 

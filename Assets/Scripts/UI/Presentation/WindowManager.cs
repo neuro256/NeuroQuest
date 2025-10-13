@@ -1,4 +1,4 @@
-using NeuroQuest.UI.Data;
+using NeuroQuest.Gameplay;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -50,7 +50,7 @@ namespace NeuroQuest.UI.Presentation
             return presenter;
         }
 
-        public NotificationWindowPresenter ShowNotification(string message, float duration = 0, System.Action onOkClick = null)
+        public NotificationWindowPresenter ShowNotification(string message, float duration = 0, Action onComplete = null)
         {
             _playerInput.SwitchCurrentActionMap("UI");
 
@@ -58,9 +58,9 @@ namespace NeuroQuest.UI.Presentation
             var presenter = new NotificationWindowPresenter(view);
 
             if (duration > 0)
-                presenter.ShowTimedMessage(message, duration);
+                presenter.ShowTimedMessage(message, duration, onComplete);
             else
-                presenter.ShowMessage(message, onOkClick);
+                presenter.ShowMessage(message, onComplete);
 
             presenter.onWindowClose += () =>
             {

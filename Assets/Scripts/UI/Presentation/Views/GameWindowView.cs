@@ -1,6 +1,5 @@
-using NeuroQuest.UI.Data;
+using NeuroQuest.Gameplay;
 using System;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;

@@ -1,5 +1,5 @@
+using NeuroQuest.Gameplay;
 using NeuroQuest.Infrastructure;
-using NeuroQuest.UI.Data;
 using System;
 using UnityEngine;
 

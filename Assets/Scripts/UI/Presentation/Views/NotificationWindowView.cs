@@ -25,18 +25,19 @@ namespace NeuroQuest.UI.Presentation
             Show();
         }
 
-        public void ShowWithTimer(string message, float duration)
+        public void ShowWithTimer(string message, float duration, Action onComplete)
         {
             _messageText.text = message;
             _okButton.gameObject.SetActive(false);
             Show();
-            StartCoroutine(AutoClose(duration));
+            StartCoroutine(AutoClose(duration, onComplete));
         }
 
-        private IEnumerator AutoClose(float delay)
+        private IEnumerator AutoClose(float delay, Action onComplete)
         {
             yield return new WaitForSeconds(delay);
             Hide();
+            onComplete?.Invoke();
         }
     }
 }

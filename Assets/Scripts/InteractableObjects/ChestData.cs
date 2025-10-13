@@ -1,5 +1,5 @@
+using NeuroQuest.Gameplay;
 using NeuroQuest.Infrastructure;
-using NeuroQuest.UI.Data;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
@@ -22,10 +22,10 @@ namespace NeuroQuest.InteractableObjects
         [SerializeField]
         private string _closedSpritePath;
         [SerializeField]
-        private QuestionData _questionData;
+        private ChestActionData _actionData;
 
         public List<ItemData> Items => _items ??= new List<ItemData>();
-        public QuestionData QuestionData => _questionData;
+        public ChestActionData ActionData => _actionData;
 
         public async Task<Sprite> LoadSpriteAsync(ChestState state)
         {
