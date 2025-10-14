@@ -62,9 +62,11 @@ namespace NeuroQuest.Infrastructure
         {
             _windowManager.ShowMiniGame(gameData, onSuccess: () =>
             {
+                _windowManager.ShowNotification(gameData.WinMessage);
                 onSuccess?.Invoke();
             }, onFail: () =>
             {
+                _windowManager.ShowNotification(gameData.GameOverMessage);
                 onFail?.Invoke();
             });
         }
