@@ -58,7 +58,7 @@ namespace NeuroQuest.Gameplay.MiniGame
             var spawnPos = _spawnArea.GetRandomPoint();
             enemy.transform.position = spawnPos;
 
-            var movement = new DropMovement(_enemySpeed);
+            var movement = new LineMovement(Vector2.down, _enemySpeed);
             enemy.Init(movement, this);
             enemy.gameObject.SetActive(true);
         }
