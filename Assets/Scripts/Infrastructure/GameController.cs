@@ -60,7 +60,13 @@ namespace NeuroQuest.Infrastructure
 
         private void StartMiniGame(MiniGameData gameData, Action onSuccess = null, Action onFail = null)
         {
-            throw new NotImplementedException();
+            _windowManager.ShowMiniGame(gameData, onSuccess: () =>
+            {
+                onSuccess?.Invoke();
+            }, onFail: () =>
+            {
+                onFail?.Invoke();
+            });
         }
     }
 }

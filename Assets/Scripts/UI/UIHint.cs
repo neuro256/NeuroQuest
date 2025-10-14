@@ -26,7 +26,8 @@ namespace NeuroQuest.UI
 
         private void SetVisible(bool state)
         {
-            _canvasGroup.alpha = state ? 1 : 0;
+            if(_canvasGroup != null)
+                _canvasGroup.alpha = state ? 1 : 0;
         }
     }
 }

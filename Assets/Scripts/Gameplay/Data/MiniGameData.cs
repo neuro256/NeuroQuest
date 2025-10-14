@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace NeuroQuest.Gameplay
 {
+    [CreateAssetMenu(menuName = "NeuroQuest/Games/MiniGameData", fileName = "NewMiniGameData")]
     public class MiniGameData : BaseGameData
     {
         public override GameType GameType => GameType.MiniGame;

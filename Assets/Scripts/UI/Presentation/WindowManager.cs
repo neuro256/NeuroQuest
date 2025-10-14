@@ -1,4 +1,5 @@
 using NeuroQuest.Gameplay;
+using NeuroQuest.Gameplay.MiniGame;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,10 +12,12 @@ namespace NeuroQuest.UI.Presentation
     {
         [SerializeField] private Transform _windowParent;
         [SerializeField] private PlayerInput _playerInput;
+        [SerializeField] private MiniGameController _miniGameController;
 
         [Header("Window views")]
         [SerializeField] private InfoWindowView _infoWindowPrefab;
         [SerializeField] private QuizWindowView _quizWindowPrefab;
+        [SerializeField] private MiniGameWindowView _miniGameWindowPrefab;
         [SerializeField] private NotificationWindowView _notificationPrefab;
 
         private readonly Dictionary<WindowType, IWindowView> _windows = new();
@@ -39,8 +42,23 @@ namespace NeuroQuest.UI.Presentation
         {
             _playerInput.SwitchCurrentActionMap("UI");
 
-            var view = GetOrCreateWindow<QuizWindowView>(WindowType.Game, _quizWindowPrefab);
+            var view = GetOrCreateWindow<QuizWindowView>(WindowType.Quiz, _quizWindowPrefab);
             var presenter = new QuizWindowPresenter(view, data, onSuccess, onFail);
+            presenter.onWindowClose += () =>
+            {
+                _playerInput.SwitchCurrentActionMap("Player");
+            };
+
+            presenter.Show();
+            return presenter;
+        }
+
+        public MiniGameWindowPresenter ShowMiniGame(MiniGameData data, Action onSuccess, Action onFail)
+        {
+            _playerInput.SwitchCurrentActionMap("MiniGame");
+
+            var view = GetOrCreateWindow(WindowType.MiniGame, _miniGameWindowPrefab);
+            var presenter = new MiniGameWindowPresenter(view, _miniGameController, data, onSuccess, onFail);
             presenter.onWindowClose += () =>
             {
                 _playerInput.SwitchCurrentActionMap("Player");
