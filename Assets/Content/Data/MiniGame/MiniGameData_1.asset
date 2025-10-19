@@ -12,8 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b41baa9d2c43bc4b932020c269112f9, type: 3}
   m_Name: MiniGameData_1
   m_EditorClassIdentifier: Assembly-CSharp::NeuroQuest.Gameplay.MiniGameData
-  _duration: 10
   _winMessage: "\u041F\u043E\u0437\u0434\u0440\u0430\u0432\u043B\u044F\u044E, \u043C\u0438\u043D\u0438-\u0438\u0433\u0440\u0430
     \u043F\u0440\u043E\u0439\u0434\u0435\u043D\u0430!"
   _gameOverMessage: "\u0412 \u0441\u043B\u0435\u0434\u0443\u044E\u0449\u0438\u0439
     \u0440\u0430\u0437 \u043F\u043E\u0432\u0435\u0437\u0435\u0442 :)"
+  _levels:
+  - {fileID: 11400000, guid: 0a2a532b97118e34983399e020eeb935, type: 2}
+  - {fileID: 11400000, guid: 82ff83102a4fba144b9f101ead8be4b2, type: 2}
+  - {fileID: 11400000, guid: 880daed6d66bfda4ea5eb01a698af201, type: 2}
+  - {fileID: 11400000, guid: f1cd673731b160848a5ca862c2d36211, type: 2}
+  - {fileID: 11400000, guid: 0526e2f27aa33e8409ab30a2d24f33cc, type: 2}

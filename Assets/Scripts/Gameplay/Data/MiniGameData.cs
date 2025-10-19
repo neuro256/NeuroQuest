@@ -1,4 +1,6 @@
+using NeuroQuest.Gameplay.MiniGame;
 using NeuroQuest.Infrastructure;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace NeuroQuest.Gameplay
@@ -8,13 +10,13 @@ namespace NeuroQuest.Gameplay
     {
         public override GameType GameType => GameType.MiniGame;
 
-        [SerializeField] private float _duration;
         [SerializeField] private string _winMessage;
         [SerializeField] private string _gameOverMessage;
+        [SerializeField] private List<MiniGameLevelData> _levels;
 
-        public float Duration => _duration;
         public string WinMessage => _winMessage;
         public string GameOverMessage => _gameOverMessage;
+        public IReadOnlyList<MiniGameLevelData> Levels => _levels;
     }
 }
 

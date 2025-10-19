@@ -2,12 +2,12 @@ using UnityEngine;
 
 namespace NeuroQuest.Gameplay.MiniGame
 {
-    public class LineMovement : MiniEnemyMovement
+    public class LinearMovement : MiniEnemyMovement
     {
         private readonly Vector2 _direction;
         private readonly float _speed;
 
-        public LineMovement(Vector2 direction, float speed)
+        public LinearMovement(Vector2 direction, float speed)
         {
             _direction = direction.normalized;
             _speed = speed;

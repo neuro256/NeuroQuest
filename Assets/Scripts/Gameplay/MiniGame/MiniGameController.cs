@@ -12,7 +12,7 @@ namespace NeuroQuest.Gameplay.MiniGame
         private bool _isPlaying;
         private Action _onSuccess;
         private Action _onFail;
-        private Coroutine _autoClose;
+        private Coroutine _levelSequence;
 
         public void StartGame(MiniGameData data, Action onSuccess, Action onFail)
         {
@@ -24,11 +24,7 @@ namespace NeuroQuest.Gameplay.MiniGame
             _onFail = onFail;
 
             _isPlaying = true;
-
-            _enemySpawner.Init();
-            _enemySpawner.StartSpawning();
-
-            _autoClose = StartCoroutine(AutoClose(data.Duration));
+            _levelSequence = StartCoroutine(LevelSequence());
         }
 
         public void EndGame(bool result)
@@ -38,8 +34,8 @@ namespace NeuroQuest.Gameplay.MiniGame
             _isPlaying = false;
             _enemySpawner.StopSpawning();
 
-            if (_autoClose != null)
-                StopCoroutine(_autoClose);
+            if (_levelSequence != null)
+                StopCoroutine(_levelSequence);
 
             if (result)
                 _onSuccess?.Invoke();
@@ -47,9 +43,19 @@ namespace NeuroQuest.Gameplay.MiniGame
                 _onFail?.Invoke();
         }
 
-        private IEnumerator AutoClose(float delay)
+        private IEnumerator LevelSequence()
         {
-            yield return new WaitForSeconds(delay);
+            foreach (var level in _gameData.Levels)
+            {
+                _enemySpawner.Init(level);
+                _enemySpawner.StartSpawning();
+
+                yield return new WaitForSeconds(level.Duration);
+
+                _enemySpawner.StopSpawning();
+
+                yield return new WaitForSeconds(level.PauseBetweenLevels);
+            }
 
             EndGame(true);
         }

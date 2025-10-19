@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e85a5bd264b894488b0c3e3a1eefc43, type: 3}
+  m_Name: MiniGameLevel_5
+  m_EditorClassIdentifier: Assembly-CSharp::NeuroQuest.Gameplay.MiniGame.MiniGameLevelData
+  _duration: 10
+  _pauseBetweenLevels: 2
+  _spawnInterval: 2
+  _enemySpeed: 1.5
+  _enemyMoveDirection: {x: 0, y: -1}
+  _spawnAreas:
+  - {fileID: 11400000, guid: 9afc44a632aba914f9a021267fadb769, type: 2}
+  - {fileID: 11400000, guid: df94e937d337af74fa1d521591cb7554, type: 2}
+  - {fileID: 11400000, guid: b514734c4e2896e4d92a0c4fe300e7dc, type: 2}
+  - {fileID: 11400000, guid: 624366cb9394a574aa0a78b55a871999, type: 2}
+  _enemyTypes:
+  - {fileID: 11400000, guid: f14598fd43900394fb802a6c9151eb2e, type: 2}
